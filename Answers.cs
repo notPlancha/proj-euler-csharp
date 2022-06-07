@@ -11,4 +11,18 @@ public static class Answers {
         }
         return value;
     }
+
+    public static (int, int, int) Problem4() {
+        (int, int, int) ret = (0,0,0);
+        for (int first = 999; first > 99; first--) {
+            for (int second = 999; second > 99; second--) {
+                int duplicated = second * first;
+                if (ret.Item1 < duplicated && Palindromic.isPalindromic(duplicated)) {
+                    ret = (second * first, first, second);
+                }
+            }
+        }
+        return ret;
+    }
+    
 }
