@@ -12,9 +12,5 @@ public static class Palindromic {
             return false;
         }
     }
-    public static string Reverse(this string value) {
-        char[] charArray = value.ToCharArray();
-        Array.Reverse( charArray );
-        return new string(charArray);
-    }
+
 }
