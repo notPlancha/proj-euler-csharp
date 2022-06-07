@@ -2,7 +2,7 @@
 using Timer = euler.Timer;
 
 Timer.startTimer();
-(int, int, int) answer = Answers.Problem4();
+var answer = Answers.Problem5();
 Timer.stopTimer();
 
 Console.WriteLine($"Answer: {answer}");

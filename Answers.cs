@@ -1,7 +1,7 @@
 ﻿namespace euler; 
 
 public static class Answers {
-    public static long Problem3() {
+    public static long Problem3() { 
         long value = 600851475143;
         for (long i = 2; i < value; i++) {
             while (value % i == 0) {
@@ -11,7 +11,6 @@ public static class Answers {
         }
         return value;
     }
-
     public static (int, int, int) Problem4() {
         (int, int, int) ret = (0,0,0);
         for (int first = 999; first > 99; first--) {
@@ -24,5 +23,11 @@ public static class Answers {
         }
         return ret;
     }
-    
+    public static long Problem5() {
+        IEnumerable<long> primes = new Prime().YieldPrimes();
+        return primes.ElementAt(10001);
+    }
+    public static (int, int, int) Problem6(){
+        
+    }
 }
