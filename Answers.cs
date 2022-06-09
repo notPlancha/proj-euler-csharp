@@ -1,7 +1,7 @@
-﻿namespace euler; 
+﻿namespace euler;
 
 public static class Answers {
-    public static long Problem3() { 
+    public static long Problem3() {
         long value = 600851475143;
         for (long i = 2; i < value; i++) {
             while (value % i == 0) {
@@ -9,10 +9,12 @@ public static class Answers {
                 Console.WriteLine(value);
             }
         }
+
         return value;
     }
+
     public static (int, int, int) Problem4() {
-        (int, int, int) ret = (0,0,0);
+        (int, int, int) ret = (0, 0, 0);
         for (int first = 999; first > 99; first--) {
             for (int second = 999; second > 99; second--) {
                 int duplicated = second * first;
@@ -21,13 +23,16 @@ public static class Answers {
                 }
             }
         }
+
         return ret;
     }
-    public static long Problem5() {
+
+    public static long Problem7() {
         IEnumerable<long> primes = new Prime().YieldPrimes();
-        return primes.ElementAt(10001);
+        return primes.ElementAt(10001 - 1); //-1 because the enumerable starts at 0
     }
-    public static int Problem6(){
+
+    public static int Problem6() {
         for (int a = 1; a < 1000; a++) {
             for (int b = 1; b < 1000; b++) {
                 for (int c = 1; c < 1000; c++) {
@@ -38,7 +43,8 @@ public static class Answers {
 
         return 0;
     }
-    public static long Problem7() {
+
+    public static long Problem8() {
         long biggestProduct = 0;
         string number = @"
                         73167176531330624919225119674426574742355349194934
@@ -71,9 +77,20 @@ public static class Answers {
                 valueToCompare *= digits[i2];
                 temp++;
             }
+
             if (biggestProduct < valueToCompare) biggestProduct = valueToCompare;
         }
 
         return biggestProduct;
+    }
+
+    public static long Problem10() {
+        long ret = 0;
+        using IEnumerator<long> primes = new Prime().YieldPrimes().GetEnumerator();
+        while (primes.Current < 2000000) {
+            ret += primes.Current;
+            primes.MoveNext();
+        }
+        return ret;
     }
 }

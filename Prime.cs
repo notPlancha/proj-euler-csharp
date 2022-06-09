@@ -5,7 +5,9 @@ public class Prime {
 
     public IEnumerable<long> YieldPrimes() {
         yield return 2;
-        int i = 3;
+        calculatedPrimes.Add(2);
+        calculatedPrimes.Add(3);
+        long i = 3;
         while (true) {
             yield return i;
             do {
@@ -17,8 +19,8 @@ public class Prime {
     public bool isPrime(long value) {
         //calculates if numebr is prime based on previous calculated primes
         foreach (long i in calculatedPrimes) {
-            if (i > value) break;
             if (value % i == 0) return false;
+            if (i*i > value) break;
         }
         calculatedPrimes.Add(value);
         return true;
